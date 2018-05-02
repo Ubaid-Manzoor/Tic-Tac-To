@@ -1,0 +1,76 @@
+
+@mixin clearFixFloat{
+	&:after,&:before{
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+@mixin BorderBoxAll{
+	*,*:after,*:before{
+	-moz-box-sizing: border-box;
+	-ms-box-sizing : border-box;
+	-webkit-box-sizing: border-box;
+	 box-sizing: border-box;
+	}
+}
+@mixin MakeGrid($cols,$col_gap,$row_gap){
+	display: grid;
+	grid-template-columns: repeat(#{$cols},1fr);
+	grid-column-gap: $col_gap;
+	grid-row-gap: $row_gap;
+}
+
+@mixin BorderRadius($radius){
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-webkit-border-radius: $radius;
+	 border-radius: $radius;
+}
+
+@mixin StyleForm{
+    fieldset{
+        border:1px solid #c8c8c8;
+        padding: 10px;
+        @include BorderRadius(10px);
+        font-family: 'Comfortaa', cursive;
+    }
+    input{
+        @include BorderRadius(0);
+        border:0;
+        outline: 0;
+        font-size: 20px;
+        border-bottom:1px solid #888;
+        width: 95%;
+        margin:5px 5px 10px 0;
+        height: 30px;
+        margin-bottom: 20px;
+        padding-left: 5px;
+        &:focus{
+            border-bottom:2px solid #1117dc;
+        }
+        // box-shadow: 2px 2px 5px #cbcbcb;
+    }
+    label{
+        font-family: 'Comfortaa', cursive;
+        font-family: 'Permanent Marker', cursive;
+        color: #000;
+    }
+    button{
+        @include BorderRadius(0);
+        display: block;
+        border: 0;
+        height: 35px;
+        margin:0 auto;
+        background: #10c1c1;
+        border:2px solid #859fc1;
+        @include BorderRadius(5px);
+        font-family: 'Comfortaa', cursive;
+        font-family: 'Permanent Marker', cursive;
+        cursor: pointer;
+        &:hover{
+            background: #888;
+            // border-color:;
+        }
+    }
+}
