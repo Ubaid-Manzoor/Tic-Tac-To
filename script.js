@@ -41,7 +41,6 @@ const GameBoard = ( ()=>{
         let firstPlayerName = document.getElementById('firstPlayer');
         let secondPlayerName = document.getElementById('secondPlayer');
         let info_about_user = document.getElementsByClassName('info_of_user')[0];
-        console.log(firstPlayerName.value);
         //Form Validation
         if(firstPlayerName.value ==="" || secondPlayerName.value ===""){
             alert("Fill The Form");
@@ -69,13 +68,11 @@ const GameBoard = ( ()=>{
         }
 
         //Add Marker to Boxs
-            console.log(Total_Boxes_Got_Filled);
             CurrentBox.forEach((Box)=>{
                 Box.addEventListener('click',()=>{
                     let nth_child = Box.getAttribute('data-number');
                     if(Player1.Chance === "0" && Box.innerHTML === "<h1> </h1>"){
                         //Change in Board Array
-                        console.log("hereeee");
                         var row  = Math.floor(Number(nth_child/3));
                         var column = nth_child%3;
                         ChangeBoard(row,column,0);
@@ -90,7 +87,6 @@ const GameBoard = ( ()=>{
                                 console.log("Player1 Won");
                                 Total_Boxes_Got_Filled = 0;
                                 info_about_user.innerHTML = '<p>'+firstPlayerName.value+' Won...</p>';
-                                console.log(info_about_user);
                                 ResetAll();
                                 return true;
                             }
@@ -109,7 +105,6 @@ const GameBoard = ( ()=>{
                         Total_Boxes_Got_Filled += 1;
                         if(Total_Boxes_Got_Filled > 4){
                             if(Check_The_Winning_Status("1")){
-                                console.log("Player2 Won");
                                 Total_Boxes_Got_Filled = 0;
                                 info_about_user.innerHTML = '<p>'+secondPlayerName.value+' Won...</p>';
                                 ResetAll();
@@ -119,7 +114,6 @@ const GameBoard = ( ()=>{
                         info_about_user.innerHTML = '<p>'+firstPlayerName.value+' playing...</p>';
                     }
                     if(Total_Boxes_Got_Filled == 9){
-                        console.log("Draw");
                         Total_Boxes_Got_Filled = 0;
                         info_about_user.innerHTML = '<p>Draw...</p>';
                         ResetAll();
@@ -129,7 +123,6 @@ const GameBoard = ( ()=>{
             });
      };
      const reset_button = document.getElementsByClassName('Reset_button')[0];
-     console.log(reset_button);
      reset_button.onclick = ()=>{
         let info_about_user = document.getElementsByClassName('info_of_user')[0];
         let firstPlayerName = document.getElementById('firstPlayer');
