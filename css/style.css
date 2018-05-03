@@ -69,7 +69,7 @@ main .Details_Box {
   padding: 10px;
   width: 30%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 20px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -146,3 +146,31 @@ main .Box h1 {
   font-size: 30px;
   font-family: 'Comfortaa', cursive;
   font-family: 'Permanent Marker', cursive; }
+
+main button {
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  display: block;
+  border: 0;
+  height: 35px;
+  margin: 10px auto;
+  background: #10c1c1;
+  border: 2px solid #859fc1;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font-family: 'Comfortaa', cursive;
+  font-family: 'Permanent Marker', cursive;
+  cursor: pointer; }
+  main button:hover {
+    background: #888; }
+
+main p {
+  display: block;
+  grid-column: 1/4;
+  font-family: 'Comfortaa', cursive;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 30px; }
