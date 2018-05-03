@@ -37,7 +37,7 @@ const GameBoard = ( ()=>{
 
 
     Submit_button.onclick = ()=>{
-        let Total_Boxes_Got_Filled;
+        let Total_Boxes_Got_Filled = 0;
         let firstPlayerName = document.getElementById('firstPlayer');
         let secondPlayerName = document.getElementById('secondPlayer');
         const Player1 = PlayerFactory("firstPlayerName","o");
@@ -57,14 +57,12 @@ const GameBoard = ( ()=>{
             });
             Player1.Chance = "0";
             Player2.Chance = "0";
-            PlayAgain();
         }
 
         //Add Marker to Boxs
-        let PlayAgain = function(){
-            Total_Boxes_Got_Filled = 0;
+            console.log(Total_Boxes_Got_Filled);
             CurrentBox.forEach((Box)=>{
-                Box.addEventListener('click',function(){
+                Box.addEventListener('click',()=>{
                     let nth_child = Box.getAttribute('data-number');
                     if(Player1.Chance === "0" && Box.innerHTML === "<h1> </h1>"){
                         //Change in Board Array
@@ -81,6 +79,7 @@ const GameBoard = ( ()=>{
                         if(Total_Boxes_Got_Filled > 4){
                             if(Check_The_Winning_Status("0")){
                                 console.log("Player1 Won");
+                                Total_Boxes_Got_Filled = 0;
                                 ResetAll();
                             }
                         }
@@ -98,17 +97,17 @@ const GameBoard = ( ()=>{
                         if(Total_Boxes_Got_Filled > 4){
                             if(Check_The_Winning_Status("1")){
                                 console.log("Player2 Won");
+                                Total_Boxes_Got_Filled = 0;
                                 ResetAll();
                             }
                         }
                     }
                     if(Total_Boxes_Got_Filled == 9){
                         console.log("Draw");
+                        Total_Boxes_Got_Filled = 0;
                         ResetAll();
                     }
                 });
             });
-        }
-        PlayAgain();
      };
 })();
